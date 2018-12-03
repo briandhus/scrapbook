@@ -11,7 +11,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        Renderer
+        <h1>ScrapBook</h1>
       </div>
     )
   }
