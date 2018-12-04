@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 
 const journalSchema = new mongoose.Schema({
   name: String,
-  date: String,
+  startDate: String,
+  endDate: String,
   airline: String,
   airlinePrice: Number,
   hotel: String,

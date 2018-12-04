@@ -1,13 +1,21 @@
 body {
-  background-color: #8FDDFF;
-  /*background: url("../images/atlas.jpg") no-repeat center center fixed;
-  background-size: cover;*/
+  background: url("http://sf.co.ua/14/02/wallpaper-1872198.jpg") no-repeat center center fixed;
+  background-size: cover;
 }
 
 h1 {
   text-align: center;
-  font-size: 50px;
-  color: #00418E;
+  overflow: auto;
+  font-size-adjust: auto;
+  font-size: 40px;
+  color: #00B45D;
+  text-shadow: 1px 1px 1px #000;
+  line-height: 80px;
+  border: 2px solid grey;
+  border-radius: 10px;
+  margin-left: 25%;
+  width: 50%;
+  background-color: white;
 }
 
 .tripButton {
@@ -25,7 +33,7 @@ h1 {
 
 .tripButton:hover {
   cursor: pointer;
-  background-color: #FE5EA4;
+  background-color: #D24E46;
 }
 
 .formPage {
@@ -43,7 +51,7 @@ h1 {
 
 #formSubmit:hover {
   cursor: pointer;
-  background-color: #FE5EA4;
+  background-color: #D24E46;
   border-radius: 5px;
 }
 

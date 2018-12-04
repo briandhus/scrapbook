@@ -9,3 +9,8 @@ exports.getAll = (req, res) => {
       res.send(data)
     })
 }
+
+exports.add = (req, res) => {
+  Trip.create()
+    .exec(res.end());
+}

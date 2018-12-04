@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import DatePicker from "react-datepicker";
 import Saved from './Saved';
 import Button from './Button';
@@ -14,7 +15,7 @@ class App extends React.Component {
       startDate: new Date(),
       endDate: new Date(),
       airline: '',
-      price: null,
+      airlinePrice: null,
     },
     this.showForm = this.showForm.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -54,6 +55,12 @@ class App extends React.Component {
       .catch(error => console.log(error));
   }
 
+  addTrip() {
+    axios.post('/trips', this.state)
+      .then(this.setState({ trips: this.state }))
+      .then(this.getTrips())
+  }
+
   handleChange(event) {
     this.setState({
       [event.target.name]: event.target.value,
@@ -69,7 +76,7 @@ class App extends React.Component {
 
     if (this.state.formOpen === false) {
       return (
-        <div className="wrapper">
+        <div>
           <h1>ScrapBook</h1>
           <div className="tripButton" onClick={() => this.showForm()}>Start a new adventure</div>
           { trips.map(trip => (<Saved trip={trip} />)) }
@@ -78,12 +85,14 @@ class App extends React.Component {
       )
     }
     return (
-      <div className="wrapper">
+      <div>
         <h1>ScrapBook</h1>
         <div className="tripButton" onClick={() => this.showForm()}>Start a new adventure</div>
         { trips.map(trip => (<Saved trip={trip} />)) }
         { trips.map(trip => (<Button name={trip.name} />)) }
-        <Form onSubmit={this.handleSubmit} onChange={this.handleChange} onChangeStart={this.handleChangeStart} onChangeEnd={this.handleChangeEnd} start={startDate} end={endDate} />
+        <Form onSubmit={this.handleSubmit} onChange={this.handleChange}
+          onChangeStart={this.handleChangeStart} onChangeEnd={this.handleChangeEnd}
+          start={startDate} end={endDate} onClick={() => this.showForm()} />
       </div>
     )
   }
