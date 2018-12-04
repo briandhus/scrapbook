@@ -1,11 +1,9 @@
 const express = require('express');
-const app = express();
 const path = require('path');
 const db = require('../database/index.js');
 const Trip = require('../database/controllers/trip.js');
 const port = 3000;
-
-console.log(Trip);
+const app = express();
 
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
