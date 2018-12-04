@@ -1,19 +1,32 @@
 import React from 'react';
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
-const Form = () => (
-  <div>
-    <form onSubmit={this.handleSubmit}>
+const Form = ({ onSubmit, start, end, onChange, onChangeStart, onChangeEnd }) => (
+  <div className="formPage">
+    <form onSubmit={onSubmit}>
       <label>
         Name your trip:
-        <input type="text" name='name' onChange={(e) => this.handleChange(e)} />
+        <input type="text" name="name" onChange={(e) => onChange(e)} />
         Date:
-        <input type="text" name='Date' onChange={(e) => this.handleChange(e)} />
+        <DatePicker
+            selected={start}
+            startDate={start}
+            endDate={end}
+            onChange={onChangeStart}
+        />
+        <DatePicker
+            selected={end}
+            startDate={start}
+            endDate={end}
+            onChange={onChangeEnd}
+        />
         Airline Travelled:
-        <input type="text" name='airline' onChange={(e) => this.handleChange(e)} />
+        <input type="text" name="airline" onChange={(e) => onChange(e)} />
         Price of flight:
-        <input type="text" name='airlinePrice' onChange={(e) => this.handleChange(e)} />
+        <input type="text" name="airlinePrice" onChange={(e) => onChange(e)} />
       </label>
-      <input type="submit" value="Submit" />
+      <input id="formSubmit" type="submit" value="Submit" />
     </form>
   </div>
 )

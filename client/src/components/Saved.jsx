@@ -10,11 +10,13 @@ class Saved extends React.Component {
 
   render() {
     console.log('props -------', this.props)
-    return (
-      <div>
-        
-      </div>
-    )
+    if (this.props.trip !== undefined) {
+      return (
+        <div>
+          
+        </div>
+      )
+    }
   }
 }
 
