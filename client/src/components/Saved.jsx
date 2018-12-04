@@ -4,12 +4,12 @@ class Saved extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      clicked: false
+      clicked: false,
     },
-    this.handleClick = this.handleClick.bind(this);
+    this.showDetail = this.showDetail.bind(this);
   }
 
-  handleClick() {
+  showDetail() {
     const clickState = this.state.clicked;
     this.setState({
       clicked: !clickState
@@ -17,11 +17,20 @@ class Saved extends React.Component {
   }
 
   render() {
-    if (this.props.trip !== undefined) {
+    const trips = this.props.trip;
+    if (this.state.clicked === false) {
       console.log(this.props.trip)
       return (
-        <div onClick={this.handleClick} >
-
+        <div onClick={() => this.showDetail()} >
+          <div className="tripButton">{trips.name}</div>
+        </div>
+      )
+    } else {
+      return (
+        <div onClick={() => this.showDetail()} >
+          {Object.values(trips).map((trip, i) => (
+            <div className="tripList">{trip}</div>
+          ))}
         </div>
       )
     }

@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const Form = ({ onSubmit, start, end, onChange, onChangeStart, onChangeEnd, onClick }) => (
   <div className="formPage">
-    <form onSubmit={onSubmit}>
+    <form>
       <label>
         Name your trip:
         <input type="text" name="name" onChange={(e) => onChange(e)} />
